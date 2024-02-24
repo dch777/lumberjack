@@ -5,7 +5,7 @@ import { services } from "./data/TestConstants.tsx";
 const Root = () => {
   return (
     <>
-      <div>Lumberjack</div>
+      <div className="w-full text-4xl m-2">Lumberjack</div>
       <DisplayHolder data={services} />
     </>
   );

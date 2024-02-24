@@ -12,7 +12,7 @@ const DisplayHolder = ({ data }) => {
 
   let serviceKeys = dataKey.map((key) => {
     return (
-      <Button key={key} onPress={(e) => handleSwitchService(e)}>
+      <Button className="m-1" key={key} onPress={(e) => handleSwitchService(e)}>
         {key}
       </Button>
     );
@@ -20,9 +20,11 @@ const DisplayHolder = ({ data }) => {
 
   return (
     <>
-      <div className="flex flex-row w-full">
-        <div className="flex flex-col">{serviceKeys}</div>
-        <div>
+      <div className="flex flex-row m-2 w-11/12 h-5/6 border-solid rounded-lg border-4">
+        <div className="flex flex-col w-1/4 h-full p-2 border-r-4">
+          {serviceKeys}
+        </div>
+        <div className="flex w-3/4 m-2">
           <DisplayService
             serviceName={data[currentService]["name"]}
             logs={data[currentService]["logs"]}
