@@ -1,5 +1,5 @@
 export const services = {
-  Service1: {
+  among: {
     name: "among",
     logs: ["blah", "blah", "blah"],
     data: [
@@ -15,7 +15,7 @@ export const services = {
       },
     ],
   },
-  Service2: {
+  james: {
     name: "james",
     logs: ["blah2", "blah2", "blah2"],
     data: [
@@ -31,7 +31,7 @@ export const services = {
       },
     ],
   },
-  Service3: {
+  dhruv: {
     name: "dhruv",
     logs: ["blah3213", "blah3213", "32131"],
     data: [
