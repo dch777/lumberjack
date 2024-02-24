@@ -1,7 +1,7 @@
 import React from "react";
 
 const LogDisplay = ({ logs }) => {
-  let log = logs.map((log) => {
+  const log = logs.map((log) => {
     return <div>{log}</div>;
   });
 
