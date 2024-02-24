@@ -1,17 +1,16 @@
 import React from "react";
 import LineGraph from "./LineGraph.tsx";
-const DisplayService = ({ serviceName, logs }) => {
+import LogDisplay from "./LogDisplay.tsx";
+
+const DisplayService = ({ serviceName, logs, data }) => {
   return (
     <div className="flex flex-col">
       <div>{serviceName}</div>
-      <div>{logs}</div>
-      <div>
-        <LineGraph
-          name="Anomolies"
-          data={{ x: [0, 2, 3, 5, 8, 10], y: [2, 5, 2, 8, 1, 5] }}
-        />
+      <div className="flex w-full flex-wrap">
+        <LineGraph name={data[0]["name"]} data={data[0]} />
+        <LineGraph name={data[1]["name"]} data={data[1]} />
       </div>
-      
+      <LogDisplay logs={logs} />
     </div>
   );
 };

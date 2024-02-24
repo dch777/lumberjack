@@ -26,6 +26,7 @@ const DisplayHolder = ({ data }) => {
           <DisplayService
             serviceName={data[currentService]["name"]}
             logs={data[currentService]["logs"]}
+            data={data[currentService]["data"]}
           />
         </div>
       </div>

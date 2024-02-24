@@ -3,7 +3,7 @@ import { LineChart } from "@mui/x-charts";
 
 const LineGraph = ({ name, data }) => {
   return (
-    <div className="flex flex-col border-4 rounded-lg p-2">
+    <div className="flex flex-col border-4 rounded-lg p-2 m-2">
       <div>{name}</div>
       <LineChart
         xAxis={[{ data: data["x"] }]}
@@ -12,8 +12,8 @@ const LineGraph = ({ name, data }) => {
             data: data["y"],
           },
         ]}
-        width={400}
-        height={250}
+        width={300}
+        height={200}
       />
     </div>
   );

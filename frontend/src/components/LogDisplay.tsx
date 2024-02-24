@@ -1,13 +1,11 @@
 import React from "react";
 
 const LogDisplay = ({ logs }) => {
-  return (
-    <>
-      {logs.forEach((log) => {
-        <div>log</div>;
-      })}
-    </>
-  );
+  let log = logs.map((log) => {
+    return <div>{log}</div>;
+  });
+
+  return <>{log}</>;
 };
 
 export default LogDisplay;
