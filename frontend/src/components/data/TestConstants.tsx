@@ -1,7 +1,18 @@
 export const services = {
   among: {
     name: "among",
-    logs: ["blah", "blah", "blah"],
+    logs: [
+      {
+        id: 1,
+        error_type: "Buh",
+        timestamp: "2/24/24 - 12:00",
+      },
+      {
+        id: 2,
+        error_type: "Buh 2",
+        timestamp: "2/24/24 - 13:00",
+      },
+    ],
     data: [
       {
         name: "Anomolies (hour)",
@@ -22,7 +33,18 @@ export const services = {
   },
   james: {
     name: "james",
-    logs: ["blah2", "blah2", "blah2"],
+    logs: [
+      {
+        id: 1,
+        error_type: "Bu3213h",
+        timestamp: "2/24/24 - 12:00",
+      },
+      {
+        id: 2,
+        error_type: "Bu222 2",
+        timestamp: "2/24/24 - 13:00",
+      },
+    ],
     data: [
       {
         name: "Anomolies (bruh)",
@@ -43,7 +65,23 @@ export const services = {
   },
   dhruv: {
     name: "dhruv",
-    logs: ["blah3213", "blah3213", "32131"],
+    logs: [
+      {
+        id: 1,
+        error_type: "Buh",
+        timestamp: "2/24/24 - 12:00",
+      },
+      {
+        id: 2,
+        error_type: "Buh 2",
+        timestamp: "2/24/24 - 13:00",
+      },
+      {
+        id: 3,
+        error_type: "Buh 2233",
+        timestamp: "2/24/24 - 13:00",
+      },
+    ],
     data: [
       {
         name: "Anomolies (buh)",
