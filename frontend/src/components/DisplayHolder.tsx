@@ -25,7 +25,8 @@ const DisplayHolder = ({ data }) => {
   return (
     <>
       <div className="flex flex-row w-full h-full border-solid rounded-lg border-4 border-huntergreen">
-        <div className="flex flex-col w-1/4 h-full p-2">{serviceKeys}</div>
+        <div className="text-2xl m-2 text-darkgreen">Services</div>
+        <div className="flex flex-col w-1/6 h-full p-2">{serviceKeys}</div>
         <div className="flex w-3/4 p-2 border-huntergreen border-l-4">
           <DisplayService
             serviceName={data[currentService]["name"]}

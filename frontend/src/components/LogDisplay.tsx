@@ -5,7 +5,7 @@ const LogDisplay = ({ logs }) => {
     return <div>{log}</div>;
   });
 
-  return <>{log}</>;
+  return <div className="flex flex-col m-2">{log}</div>;
 };
 
 export default LogDisplay;
