@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import DisplayService from "./DisplayService.tsx";
 
 const DisplayHolder = ({ data }) => {
   const dataKey = Object.keys(data);
-  const [currentService, setCurrentService] = useState(dataKey[0]);
+  const [currentServiceID, setCurrentServiceID] = useState(dataKey[0]);
+  const [currentService, setCurrentService] = useState({
+    labels: {},
+    name: "",
+    status: "",
+  });
 
-  const handleSwitchService = (event) => {
-    setCurrentService(event.target.textContent);
-  };
+  useEffect(() => {
+    if (currentServiceID) {
+      axios.get("http://localhost:5000/service/" + currentServiceID).then(
+        (response) => {
+          setCurrentService(response.data["service"]);
+        },
+      );
+    }
+  }, [currentServiceID]);
 
-  let serviceKeys = dataKey.map((key) => {
+  const serviceKeys = dataKey.map((key) => {
     return (
       <Button
         className="m-1 bg-huntergreen text-khaki"
         key={key}
-        onPress={(e) => handleSwitchService(e)}
+        onPress={(e) => setCurrentServiceID(e.target.textContent)}
       >
-        {key}
+        {data[key]}
       </Button>
     );
   });
@@ -29,9 +41,7 @@ const DisplayHolder = ({ data }) => {
         <div className="flex flex-col w-1/6 h-full p-2">{serviceKeys}</div>
         <div className="flex w-3/4 p-2 border-huntergreen border-l-4">
           <DisplayService
-            serviceName={data[currentService]["name"]}
-            logs={data[currentService]["logs"]}
-            data={data[currentService]["data"]}
+            service={currentService}
           />
         </div>
       </div>

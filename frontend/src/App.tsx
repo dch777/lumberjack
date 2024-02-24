@@ -1,11 +1,14 @@
 import "./App.css";
 import { NextUIProvider } from "@nextui-org/react";
-import Root from "./components/Root.tsx";
+import Root from "./components/root.tsx";
+import React from "react";
 
 function App() {
   return (
     <NextUIProvider>
-      <Root />
+      <React.Fragment>
+        <Root />
+      </React.Fragment>
     </NextUIProvider>
   );
 }

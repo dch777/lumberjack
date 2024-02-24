@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from flask_cors import CORS
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
@@ -19,31 +19,24 @@ server.register_blueprint(info, url_prefix='/info')
 server.register_blueprint(service, url_prefix='/service')
 
 
-@socketio.on("request_info")
-def init_container_room(id):
-    print("asdfd", file=sys.stderr)
-    container = client.containers.get(id)
-    for log in container.logs(stream=True):
-        emit("log_data", log)
-
-
 @socketio.on('connect')
-def test_connect():
-    print("asdfd", file=sys.stderr)
-    emit('my response')
+def connection():
+    @socketio.on("request_info")
+    def request_info(id):
+        print("asdf", file=sys.stderr)
+        emit('rahhh', 'asdf')
 
+    @socketio.on('join')
+    def on_join(data):
+        if data:
+            join_room(data)
 
-@socketio.on('join')
-def on_join(data):
-    room = data['room']
-    join_room(room)
-
-
-@socketio.on('leave')
-def on_leave(data):
-    room = data['room']
-    leave_room(room)
+    @socketio.on('leave')
+    def on_leave(data):
+        if data:
+            leave_room(data)
 
 
 if __name__ == "__main__":
+    init_rooms(socketio)
     socketio.run(server, allow_unsafe_werkzeug=True)

@@ -7,7 +7,7 @@ info = Blueprint('info', __name__)
 @info.route('/containers/')
 def containers():
     return jsonify({'containers': {container.id: container.name for container in
-                                   client.containers.list()}})
+                                   client.containers.list(all=True)}})
 
 
 @info.route('/images/')
