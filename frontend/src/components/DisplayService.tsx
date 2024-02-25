@@ -46,6 +46,7 @@ const DisplayService = ({ service }) => {
     const interval = setInterval(() => {
       setCPUStats([...cpuBuffer.current]);
       setMemoryStats([...memoryBuffer.current]);
+      console.log(service);
     }, 3000);
 
     return () => {

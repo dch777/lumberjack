@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import DisplayService from "./DisplayService.tsx";
+import { ReactComponent as Logo } from "../logo.svg";
 
 const DisplayHolder = ({ data }) => {
   const dataKey = Object.keys(data);
@@ -37,8 +38,9 @@ const DisplayHolder = ({ data }) => {
 
   return (
     <div className="flex flex-row w-full h-full border-solid rounded-lg border-4 border-huntergreen">
-      <div className="flex flex-col">
-        <div className="text-3xl m-2 mb-1 text-darkgreen text-center">
+      <div className="flex flex-col items-center justify-center">
+        <Logo width={256} height={256} />
+        <div className="text-4xl font-bold mx-2 mb-2 text-darkgreen text-center">
           Lumberjack
         </div>
         <span class="px-3 text-gray-500 bg-huntergreen" />

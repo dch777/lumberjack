@@ -18,7 +18,7 @@ list of actionable items to begin addressing the issue."
             },
             {
                 "role": "user",
-                "content": "Explain the following Apache error message and some possible steps to begin debugging: " + log,
+                "content": "Explain the following error message and some possible steps to begin debugging: " + log,
             }
         ],
         model="gpt-3.5-turbo",
