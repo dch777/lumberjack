@@ -15,12 +15,11 @@ const DisplayService = ({ service }) => {
 
   useEffect(() => {
     socket.on("stats", (response) => {
-      console.log(response);
       memoryBuffer.current.push(response.memory_stats.usage * 1e-9);
       memoryBuffer.current = memoryBuffer.current.slice(-20);
 
       cpuBuffer.current.push(
-        100 * 100 *
+        100 *
           (response.cpu_stats.cpu_usage.total_usage /
             response.cpu_stats.system_cpu_usage),
       );
@@ -59,10 +58,14 @@ const DisplayService = ({ service }) => {
       <div className="text-2xl m-2 text-darkgreen">
         {indicator} {display_name}
       </div>
-      <div className="flex sm:flex-row justify-center m-2 rounded-lg border-huntergreen bg-huntergreen text-white w-full px-4 py-2">
-        <LineGraph name="Service RAM Usage (GB)" y={memoryStats} />
-        <LineGraph name="Service CPU Usage %" y={cpuStats} />
-      </div>
+      {service.status === "running" &&
+        (
+          <div className="flex sm:flex-row justify-center m-2 rounded-lg border-huntergreen bg-huntergreen text-white w-full px-4 py-2">
+            <LineGraph name="Service RAM Usage (GB)" y={memoryStats} />
+            <LineGraph name="Service CPU Usage %" y={cpuStats} />
+          </div>
+        )}
+
       <LogDisplay service={service} />
     </div>
   );

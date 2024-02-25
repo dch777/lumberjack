@@ -6,3 +6,8 @@ gevent
 gevent-websocket
 openai
 python-dotenv
+numpy
+pandas
+fasttext
+scikit-learn
+scipy

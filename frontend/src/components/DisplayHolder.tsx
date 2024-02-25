@@ -26,7 +26,7 @@ const DisplayHolder = ({ data }) => {
     return (
       <Button
         className={"m-1 text-khaki " +
-          (data[key].status == "running" ? "bg-huntergreen" : "bg-red")}
+          (data[key].status === "running" ? "bg-huntergreen" : "bg-red")}
         key={key}
         onPress={(e) => setCurrentServiceID(e.target.textContent)}
       >

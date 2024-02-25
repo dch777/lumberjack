@@ -1,0 +1,19 @@
+event
+"AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message"
+[Sun Feb 25 04:47:57.544461 2024] [ssl:warn] [pid 8:tid 131418398750592] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Feb 25 04:47:57.544568 2024] [ssl:warn] [pid 8:tid 131418398750592] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+"AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message"
+[Sun Feb 25 04:47:57.549423 2024] [ssl:warn] [pid 8:tid 131418398750592] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Feb 25 04:47:57.549444 2024] [ssl:warn] [pid 8:tid 131418398750592] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Feb 25 04:47:57.551925 2024] [mpm_event:notice] [pid 8:tid 131418398750592] AH00489: Apache/2.4.58 (Unix) OpenSSL/3.0.11 configured -- resuming normal operations
+[Sun Feb 25 04:47:57.551958 2024] [core:notice] [pid 8:tid 131418398750592] AH00094: Command line: '/usr/local/apache2/bin/httpd -D FOREGROUND'
+"AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message"
+[Sun Feb 25 06:59:03.891413 2024] [ssl:warn] [pid 8:tid 123418164062080] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Feb 25 06:59:03.892274 2024] [ssl:warn] [pid 8:tid 123418164062080] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+"AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message"
+[Sun Feb 25 06:59:03.897934 2024] [ssl:warn] [pid 8:tid 123418164062080] AH01906: www.example.com:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sun Feb 25 06:59:03.897957 2024] [ssl:warn] [pid 8:tid 123418164062080] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Feb 25 06:59:03.898051 2024] [core:warn] [pid 8:tid 123418164062080] AH00098: pid file /usr/local/apache2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Feb 25 06:59:03.900281 2024] [mpm_event:notice] [pid 8:tid 123418164062080] AH00489: Apache/2.4.58 (Unix) OpenSSL/3.0.11 configured -- resuming normal operations
+[Sun Feb 25 06:59:03.900313 2024] [core:notice] [pid 8:tid 123418164062080] AH00094: Command line: '/usr/local/apache2/bin/httpd -D FOREGROUND'
+""

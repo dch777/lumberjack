@@ -5,16 +5,19 @@ from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 from dotenv import load_dotenv
 import sys
+import os
+
+load_dotenv()
 
 from util.docker import client
 from util.init_rooms import init_rooms
 from routes.info import info
 from routes.service import service
 
-load_dotenv()
 server = Flask(__name__)
 socketio = SocketIO(server, cors_allowed_origins='*')
-CORS(server)
+server.config['CORS_HEADERS'] = 'Content-Type'
+CORS(server, resources={r"/*": {"origins": "*"}})
 
 server.register_blueprint(info, url_prefix='/info')
 server.register_blueprint(service, url_prefix='/service')

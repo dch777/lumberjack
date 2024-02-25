@@ -4,7 +4,7 @@ import json
 
 
 def init_rooms(socketio):
-    containers = client.containers.list()
+    containers = client.containers.list(all=True)
     rooms = []
     for container in containers:
         rooms.append(threading.Thread(
