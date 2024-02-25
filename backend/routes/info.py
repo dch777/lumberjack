@@ -6,7 +6,8 @@ info = Blueprint('info', __name__)
 
 @info.route('/containers/')
 def containers():
-    return jsonify({'containers': {container.id: container.name for container in
+    return jsonify({'containers': {container.id: {'name': container.name,
+                                                  'status': container.status} for container in
                                    client.containers.list(all=True)}})
 
 

@@ -25,27 +25,36 @@ const DisplayHolder = ({ data }) => {
   const serviceKeys = dataKey.map((key) => {
     return (
       <Button
-        className="m-1 bg-huntergreen text-khaki"
+        className={"m-1 text-khaki " +
+          (data[key].status == "running" ? "bg-huntergreen" : "bg-red")}
         key={key}
         onPress={(e) => setCurrentServiceID(e.target.textContent)}
       >
-        {data[key]}
+        {data[key].name}
       </Button>
     );
   });
 
   return (
-    <>
-      <div className="flex flex-row w-full h-full border-solid rounded-lg border-4 border-huntergreen">
-        <div className="text-2xl m-2 text-darkgreen">Services</div>
-        <div className="flex flex-col w-1/6 h-full p-2">{serviceKeys}</div>
-        <div className="flex w-3/4 p-2 border-huntergreen border-l-4">
-          <DisplayService
-            service={currentService}
-          />
+    <div className="flex flex-row w-full h-full border-solid rounded-lg border-4 border-huntergreen">
+      <div className="flex flex-col">
+        <div className="text-3xl m-2 mb-1 text-darkgreen text-center">
+          Lumberjack
+        </div>
+        <span class="px-3 text-gray-500 bg-huntergreen" />
+        <div className="border-t border-huntergreen pt-4 border-thick text-2xl mx-2 text-darkgreen">
+          Services
+        </div>
+        <div className="flex flex-col grow w-full h-full p-2">
+          {serviceKeys}
         </div>
       </div>
-    </>
+      <div className="flex w-full p-2 border-huntergreen border-l-4 mr-4">
+        <DisplayService
+          service={currentService}
+        />
+      </div>
+    </div>
   );
 };
 

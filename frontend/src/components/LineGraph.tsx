@@ -1,21 +1,34 @@
-import React, { useEffect, useRef, useState } from "react";
-import { LineChart } from "@mui/x-charts";
+import React from "react";
+import {
+  CartesianGrid,
+  Label,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-const LineGraph = ({ name, data }) => {
+const LineGraph = ({ name, y }) => {
   return (
-    <div className="flex flex-col border-4 rounded-lg p-2 m-2 border-huntergreen">
-      <div>{name}</div>
-      <LineChart
-        xAxis={[{ data: data["x"] }]}
-        series={[
-          {
-            data: data["y"],
-          },
-        ]}
-        width={300}
-        height={200}
-      />
-    </div>
+    <ResponsiveContainer width="50%" height={300}>
+      <LineChart data={y}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <YAxis tick={{ fill: "white" }} dataKey={(v) => v} />
+        <XAxis>
+          <Label
+            style={{
+              textAnchor: "middle",
+              fontSize: "100%",
+              fill: "white",
+            }}
+            value={name}
+          />
+        </XAxis>
+
+        <Line type="" dataKey={(v) => v} stroke="#ffffff" />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };
 

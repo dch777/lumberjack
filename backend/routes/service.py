@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, stream_with_context, Response
 from util.docker import client
 import sys
 
@@ -15,4 +15,9 @@ def get_service(id):
 @service.route('/<string:id>/logs')
 def get_service_logs(id):
     container = client.containers.get(id)
-    return container.logs()
+
+    def generate():
+        for line in container.logs().decode().split('\n'):
+            yield line + '\n'
+
+    return stream_with_context(generate())

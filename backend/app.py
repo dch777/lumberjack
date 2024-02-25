@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from flask_cors import CORS
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
+from dotenv import load_dotenv
 import sys
 
 from util.docker import client
@@ -10,7 +11,7 @@ from util.init_rooms import init_rooms
 from routes.info import info
 from routes.service import service
 
-
+load_dotenv()
 server = Flask(__name__)
 socketio = SocketIO(server, cors_allowed_origins='*')
 CORS(server)
@@ -23,8 +24,7 @@ server.register_blueprint(service, url_prefix='/service')
 def connection():
     @socketio.on("request_info")
     def request_info(id):
-        print("asdf", file=sys.stderr)
-        emit('rahhh', 'asdf')
+        print("[INFO] Logs requested", file=sys.stderr)
 
     @socketio.on('join')
     def on_join(data):
